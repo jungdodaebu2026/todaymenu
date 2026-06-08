@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우리가족 오늘 메뉴 추천 🍽️</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#2E7D32;--green-light:#E8F5E9;--green-mid:#4CAF50;
+  --orange:#E65100;--orange-light:#FFF3E0;--orange-mid:#FF9800;
+  --teal:#00695C;--teal-light:#E0F2F1;
+  --red:#C62828;--red-light:#FFEBEE;
+  --gray:#424242;--gray-light:#F5F5F5;--gray-border:#E0E0E0;
+  --white:#FFFFFF;
+}
+body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-height:100vh}
+
+/* 헤더 */
+.site-header{background:var(--white);border-bottom:1px solid var(--gray-border);padding:0 20px;position:sticky;top:0;z-index:100}
+.header-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.site-title{display:flex;align-items:center;gap:10px}
+.site-title .emoji{font-size:22px}
+.site-title h1{font-size:17px;font-weight:700;color:var(--green)}
+.weather-pill{display:flex;align-items:center;gap:6px;padding:5px 12px;background:var(--teal-light);border-radius:20px;font-size:12px;color:var(--teal);font-weight:500}
+.weather-pill i{font-size:14px}
+
+/* 탭 */
+.tabs{background:var(--white);border-bottom:1px solid var(--gray-border)}
+.tabs-inner{max-width:800px;margin:0 auto;display:flex}
+.tab-btn{flex:1;padding:14px 8px;border:none;background:none;font-family:inherit;font-size:14px;color:#757575;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;font-weight:400}
+.tab-btn.active{color:var(--green);border-bottom-color:var(--green);font-weight:500}
+.tab-btn i{display:block;font-size:20px;margin:0 auto 4px}
+
+/* 컨텐츠 */
+.content{max-width:800px;margin:0 auto;padding:20px 16px 40px}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* 카드 */
+.card{background:var(--white);border:1px solid var(--gray-border);border-radius:16px;padding:20px;margin-bottom:16px}
+.card-title{font-size:14px;font-weight:500;color:#757575;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.card-title i{font-size:16px;color:var(--green-mid)}
+
+/* 기분 선택 */
+.mood-grid{display:flex;flex-wrap:wrap;gap:8px}
+.mood-btn{padding:8px 16px;border-radius:20px;border:1px solid var(--gray-border);background:var(--white);font-size:13px;cursor:pointer;color:var(--gray);transition:all .15s;font-family:inherit;font-weight:400}
+.mood-btn:hover{border-color:var(--green-mid);color:var(--green)}
+.mood-btn.active{background:var(--green);border-color:var(--green);color:var(--white);font-weight:500}
+
+/* 재료 입력 */
+.ingredient-input-row{display:flex;gap:8px;margin-bottom:10px}
+.ingredient-input-row input{flex:1;padding:10px 14px;border:1px solid var(--gray-border);border-radius:10px;font-size:14px;font-family:inherit;outline:none;transition:border .15s}
+.ingredient-input-row input:focus{border-color:var(--green-mid)}
+.add-btn{padding:10px 16px;background:var(--green);color:#fff;border:none;border-radius:10px;font-size:13px;cursor:pointer;white-space:nowrap;font-family:inherit;display:flex;align-items:center;gap:4px}
+.add-btn:hover{background:var(--teal)}
+.ingredient-tags{display:flex;flex-wrap:wrap;gap:6px;min-height:32px}
+.ing-tag{display:flex;align-items:center;gap:4px;padding:5px 10px;background:var(--green-light);border-radius:20px;font-size:12px;color:var(--green);font-weight:500}
+.ing-tag button{border:none;background:none;cursor:pointer;color:var(--green);font-size:14px;line-height:1;padding:0;display:flex}
+.ing-tag button:hover{color:var(--red)}
+.no-ing{font-size:13px;color:#BDBDBD;padding:4px 0}
+
+/* 추천 버튼 */
+.rec-btn{width:100%;padding:15px;border-radius:12px;border:none;background:var(--green);color:#fff;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;font-family:inherit;letter-spacing:.3px}
+.rec-btn:hover{background:var(--teal)}
+.rec-btn:disabled{opacity:.5;cursor:not-allowed}
+.rec-btn.orange{background:var(--orange)}
+.rec-btn.orange:hover{background:#BF360C}
+
+/* 결과 카드 */
+.result-wrapper{animation:slideUp .35s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.main-result{background:linear-gradient(135deg,var(--green-light) 0%,#F1F8E9 100%);border:1.5px solid var(--green-mid);border-radius:16px;padding:20px;margin-bottom:12px}
+.result-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;background:var(--green-mid);color:#fff;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:10px;letter-spacing:.5px}
+.result-menu-name{font-size:26px;font-weight:700;color:var(--green);margin-bottom:8px}
+.result-reason{font-size:14px;color:#37474F;line-height:1.7;margin-bottom:12px}
+.recipe-tip{background:#fff;border-radius:10px;padding:12px 14px;font-size:13px;color:#546E7A;line-height:1.6;border-left:3px solid var(--green-mid)}
+.recipe-tip strong{color:var(--green);display:block;margin-bottom:4px;font-size:12px}
+
+/* 유튜브 */
+.yt-section{margin-top:14px}
+.yt-label{font-size:12px;font-weight:500;color:#757575;margin-bottom:8px;display:flex;align-items:center;gap:4px}
+.yt-label i{color:#FF0000}
+.yt-link-btn{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--gray-border);border-radius:10px;text-decoration:none;color:inherit;background:var(--white);margin-bottom:6px;transition:border .15s;cursor:pointer}
+.yt-link-btn:hover{border-color:#FF0000}
+.yt-icon{width:36px;height:26px;background:#FF0000;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.yt-icon i{color:#fff;font-size:16px}
+.yt-text{flex:1;min-width:0}
+.yt-title-text{font-size:13px;color:#212121;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.yt-sub{font-size:11px;color:#9E9E9E;margin-top:1px}
+.yt-arrow{font-size:14px;color:#9E9E9E}
+
+/* 대안 */
+.alts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.alt-card{background:var(--white);border:1px solid var(--gray-border);border-radius:12px;padding:14px;cursor:pointer;transition:all .15s}
+.alt-card:hover{border-color:var(--orange-mid);background:var(--orange-light)}
+.alt-name{font-size:14px;font-weight:500;color:#212121;margin-bottom:4px}
+.alt-reason{font-size:12px;color:#757575;line-height:1.5}
+
+/* 트렌드 */
+.trend-card{background:var(--orange-light);border:1px solid var(--orange-mid);border-radius:12px;padding:16px;margin-top:4px}
+.trend-badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;background:var(--orange-mid);color:#fff;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:8px}
+.trend-name{font-size:16px;font-weight:700;color:var(--orange);margin-bottom:6px}
+.trend-reason{font-size:13px;color:#5D4037;line-height:1.6;margin-bottom:10px}
+
+/* 내 메뉴 탭 */
+.sheet-status{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:16px}
+.sheet-status.ok{background:var(--green-light);color:var(--green)}
+.sheet-status.loading{background:var(--gray-light);color:var(--gray)}
+.sheet-status.err{background:var(--red-light);color:var(--red)}
+.sheet-status i{font-size:16px}
+
+.menu-list{display:flex;flex-direction:column;gap:8px}
+.menu-item{background:var(--white);border:1px solid var(--gray-border);border-radius:12px;padding:14px 16px}
+.menu-item-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.menu-item-name{font-size:15px;font-weight:500;color:#212121}
+.category-tag{padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500}
+.cat-찌개{background:#E3F2FD;color:#1565C0}
+.cat-볶음{background:#FCE4EC;color:#880E4F}
+.cat-볶음밥{background:#FFFDE7;color:#F57F17}
+.cat-국{background:#E8EAF6;color:#283593}
+.cat-구이{background:#FBE9E7;color:#BF360C}
+.cat-양식{background:#F3E5F5;color:#6A1B9A}
+.cat-분식{background:#E8F5E9;color:#1B5E20}
+.cat-기타{background:#F5F5F5;color:#424242}
+.menu-item-ing{font-size:12px;color:#9E9E9E;margin-bottom:4px}
+.menu-item-memo{font-size:12px;color:#616161;line-height:1.5}
+.menu-item-meta{display:flex;gap:12px;margin-top:6px}
+.meta-chip{font-size:11px;color:#9E9E9E;display:flex;align-items:center;gap:3px}
+.meta-chip i{font-size:12px}
+
+.open-sheet-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border:1.5px dashed var(--gray-border);border-radius:12px;color:#757575;font-size:13px;cursor:pointer;text-decoration:none;transition:all .15s;margin-top:8px;background:none;width:100%;font-family:inherit}
+.open-sheet-btn:hover{border-color:var(--green-mid);color:var(--green)}
+
+/* 로딩 */
+.loading-box{display:flex;flex-direction:column;align-items:center;gap:12px;padding:30px}
+.dots{display:flex;gap:7px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--green-mid);animation:bop .7s infinite}
+.dot:nth-child(2){animation-delay:.12s}
+.dot:nth-child(3){animation-delay:.24s}
+@keyframes bop{0%,80%,100%{transform:scale(.75);opacity:.4}40%{transform:scale(1.1);opacity:1}}
+.loading-text{font-size:13px;color:#9E9E9E}
+
+.empty-state{text-align:center;padding:40px 20px;color:#BDBDBD}
+.empty-state i{font-size:48px;margin-bottom:12px;display:block}
+.empty-state p{font-size:14px}
+
+@media(max-width:480px){
+  .alts-grid{grid-template-columns:1fr}
+  .result-menu-name{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-title">
+      <span class="emoji">🍽️</span>
+      <h1>우리가족 오늘 메뉴 추천</h1>
+    </div>
+    <div class="weather-pill" id="weatherPill">
+      <i class="ti ti-sun"></i>
+      <span id="weatherText">날씨 확인 중...</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="switchTab('recommend',this)">
+      <i class="ti ti-wand" aria-hidden="true"></i>메뉴 추천
+    </button>
+    <button class="tab-btn" onclick="switchTab('fridge',this)">
+      <i class="ti ti-fridge" aria-hidden="true"></i>냉장고로 추천
+    </button>
+    <button class="tab-btn" onclick="switchTab('mymenus',this)">
+      <i class="ti ti-list" aria-hidden="true"></i>내 메뉴 목록
+    </button>
+  </div>
+</nav>
+
+<main class="content">
+
+  <!-- 탭1: 메뉴 추천 -->
+  <div id="tab-recommend" class="tab-panel active">
+    <div class="card">
+      <p class="card-title"><i class="ti ti-mood-smile" aria-hidden="true"></i>오늘 기분은?</p>
+      <div class="mood-grid" id="moodGrid">
+        <button class="mood-btn active" data-mood="뭐든 좋아">뭐든 좋아 😄</button>
+        <button class="mood-btn" data-mood="든든하게">든든하게 💪</button>
+        <button class="mood-btn" data-mood="가볍게">가볍게 🥗</button>
+        <button class="mood-btn" data-mood="매운게 땡겨">매운 게 땡겨 🌶️</button>
+        <button class="mood-btn" data-mood="따뜻한 국물">따뜻한 국물 🍲</button>
+        <button class="mood-btn" data-mood="간단하게">간단하게 ⚡</button>
+        <button class="mood-btn" data-mood="색다른거">색다른 거 🌟</button>
+      </div>
+    </div>
+    <button class="rec-btn" id="recBtn1" onclick="getRecommendation('mood')">
+      <i class="ti ti-sparkles" aria-hidden="true"></i> 오늘 메뉴 추천받기
+    </button>
+    <div id="result1" style="margin-top:16px"></div>
+  </div>
+
+  <!-- 탭2: 냉장고 추천 -->
+  <div id="tab-fridge" class="tab-panel">
+    <div class="card">
+      <p class="card-title"><i class="ti ti-fridge" aria-hidden="true"></i>지금 집에 있는 재료를 입력해주세요</p>
+      <div class="ingredient-input-row">
+        <input type="text" id="ingInput" placeholder="예: 김치, 계란, 대파..." onkeydown="if(event.key==='Enter')addIngredient()">
+        <button class="add-btn" onclick="addIngredient()"><i class="ti ti-plus" aria-hidden="true"></i>추가</button>
+      </div>
+      <div class="ingredient-tags" id="ingTags">
+        <span class="no-ing">재료를 추가해주세요</span>
+      </div>
+    </div>
+    <button class="rec-btn orange" id="recBtn2" onclick="getRecommendation('fridge')">
+      <i class="ti ti-chef-hat" aria-hidden="true"></i> 이 재료로 만들 수 있는 메뉴 추천
+    </button>
+    <div id="result2" style="margin-top:16px"></div>
+  </div>
+
+  <!-- 탭3: 내 메뉴 목록 -->
+  <div id="tab-mymenus" class="tab-panel">
+    <div id="sheetStatus" class="sheet-status loading">
+      <i class="ti ti-loader-2"></i> 구글 시트에서 불러오는 중...
+    </div>
+    <div id="menuListContainer"></div>
+    <a href="https://docs.google.com/spreadsheets/d/1bi91WtqlXaFNXmCzJZ02PsJLIesm8R_p083xndFL5us/edit" target="_blank" class="open-sheet-btn">
+      <i class="ti ti-brand-google" aria-hidden="true"></i> 구글 시트에서 메뉴 추가/수정하기
+    </a>
+  </div>
+
+</main>
+
+<script>
+const SHEET_ID = '1bi91WtqlXaFNXmCzJZ02PsJLIesm8R_p083xndFL5us';
+const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+
+let menuData = [];
+let ingredients = [];
+let selectedMood = '뭐든 좋아';
+let weatherInfo = '날씨 정보 없음';
+
+// 탭 전환
+function switchTab(name, el) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  el.classList.add('active');
+  if (name === 'mymenus' && menuData.length === 0) loadSheet();
+}
+
+// 기분 버튼
+document.querySelectorAll('.mood-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedMood = btn.dataset.mood;
+  });
+});
+
+// 재료 추가
+function addIngredient() {
+  const input = document.getElementById('ingInput');
+  const vals = input.value.split(/[,，\s]+/).map(v => v.trim()).filter(Boolean);
+  vals.forEach(v => { if (!ingredients.includes(v)) ingredients.push(v); });
+  input.value = '';
+  renderIngTags();
+}
+function removeIngredient(ing) {
+  ingredients = ingredients.filter(i => i !== ing);
+  renderIngTags();
+}
+function renderIngTags() {
+  const el = document.getElementById('ingTags');
+  if (ingredients.length === 0) {
+    el.innerHTML = '<span class="no-ing">재료를 추가해주세요</span>';
+    return;
+  }
+  el.innerHTML = ingredients.map(i =>
+    `<span class="ing-tag">${i}<button onclick="removeIngredient('${i}')" aria-label="${i} 삭제"><i class="ti ti-x" style="font-size:12px"></i></button></span>`
+  ).join('');
+}
+
+// 날씨
+async function loadWeather() {
+  try {
+    const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.865&longitude=126.975&current=temperature_2m,weathercode&timezone=Asia/Seoul');
+    const d = await r.json();
+    const t = Math.round(d.current.temperature_2m);
+    const code = d.current.weathercode;
+    let desc = '맑음', icon = 'ti-sun';
+    if (code >= 61) { desc = '비'; icon = 'ti-cloud-rain'; }
+    else if (code >= 51) { desc = '이슬비'; icon = 'ti-cloud-drizzle'; }
+    else if (code >= 3) { desc = '흐림'; icon = 'ti-cloud'; }
+    else if (code >= 1) { desc = '구름'; icon = 'ti-cloud-sun'; }
+    weatherInfo = `${desc} ${t}°C`;
+    document.getElementById('weatherText').textContent = `옥정 ${desc} ${t}°C`;
+    document.querySelector('#weatherPill i').className = `ti ${icon}`;
+  } catch {
+    const m = new Date().getMonth() + 1;
+    weatherInfo = m >= 6 && m <= 8 ? '더운 여름' : m >= 12 || m <= 2 ? '추운 겨울' : '선선한 날씨';
+    document.getElementById('weatherText').textContent = weatherInfo;
+  }
+}
+
+// 구글 시트 로드
+async function loadSheet() {
+  const status = document.getElementById('sheetStatus');
+  status.className = 'sheet-status loading';
+  status.innerHTML = '<i class="ti ti-loader-2"></i> 구글 시트에서 불러오는 중...';
+  try {
+    const r = await fetch(SHEET_URL);
+    if (!r.ok) throw new Error('fetch fail');
+    const text = await r.text();
+    menuData = parseCSV(text);
+    status.className = 'sheet-status ok';
+    status.innerHTML = `<i class="ti ti-circle-check"></i> ${menuData.length}개 메뉴 불러옴`;
+    renderMenuList();
+  } catch {
+    status.className = 'sheet-status err';
+    status.innerHTML = '<i class="ti ti-alert-circle"></i> 시트를 불러올 수 없어요. 공유 설정을 확인해주세요.';
+    document.getElementById('menuListContainer').innerHTML = '';
+  }
+}
+
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  if (lines.length < 2) return [];
+  const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g,''));
+  return lines.slice(1).map(line => {
+    const vals = line.match(/(".*?"|[^,]+|(?<=,)(?=,)|^(?=,)|(?<=,)$)/g) || line.split(',');
+    const obj = {};
+    headers.forEach((h, i) => { obj[h] = (vals[i]||'').trim().replace(/^"|"$/g,''); });
+    return obj;
+  }).filter(r => r[headers[0]]);
+}
+
+function getCatClass(cat) {
+  const map = {'찌개':'찌개','국':'국','볶음':'볶음','볶음밥':'볶음밥','구이':'구이','양식':'양식','분식':'분식'};
+  for (const k in map) { if ((cat||'').includes(k)) return 'cat-' + map[k]; }
+  return 'cat-기타';
+}
+
+function renderMenuList() {
+  const el = document.getElementById('menuListContainer');
+  if (menuData.length === 0) {
+    el.innerHTML = '<div class="empty-state"><i class="ti ti-mood-empty"></i><p>아직 등록된 메뉴가 없어요</p></div>';
+    return;
+  }
+  el.innerHTML = '<div class="menu-list">' + menuData.map(m => {
+    const name = m['메뉴명'] || m[Object.keys(m)[0]] || '';
+    const ing = m['주재료'] || '';
+    const memo = m['레시피 메모'] || m['레시피메모'] || '';
+    const cat = m['카테고리'] || '';
+    const time = m['조리시간(분)'] || m['조리시간'] || '';
+    const diff = m['난이도'] || '';
+    return `<div class="menu-item">
+      <div class="menu-item-top">
+        <span class="menu-item-name">${name}</span>
+        ${cat ? `<span class="category-tag ${getCatClass(cat)}">${cat}</span>` : ''}
+      </div>
+      ${ing ? `<div class="menu-item-ing"><i class="ti ti-basket" style="font-size:12px;vertical-align:-1px"></i> ${ing}</div>` : ''}
+      ${memo ? `<div class="menu-item-memo">${memo}</div>` : ''}
+      <div class="menu-item-meta">
+        ${time ? `<span class="meta-chip"><i class="ti ti-clock"></i>${time}분</span>` : ''}
+        ${diff ? `<span class="meta-chip"><i class="ti ti-star"></i>${diff}</span>` : ''}
+      </div>
+    </div>`;
+  }).join('') + '</div>';
+}
+
+// AI 추천
+async function getRecommendation(mode) {
+  const btnId = mode === 'mood' ? 'recBtn1' : 'recBtn2';
+  const resultId = mode === 'mood' ? 'result1' : 'result2';
+  const btn = document.getElementById(btnId);
+  const resultDiv = document.getElementById(resultId);
+
+  if (mode === 'fridge' && ingredients.length === 0) {
+    resultDiv.innerHTML = '<div style="text-align:center;padding:16px;font-size:13px;color:#E65100;background:#FFF3E0;border-radius:10px">재료를 먼저 입력해주세요!</div>';
+    return;
+  }
+
+  btn.disabled = true;
+  resultDiv.innerHTML = `<div class="loading-box"><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><p class="loading-text">맞춤 메뉴 고르는 중...</p></div>`;
+
+  // 시트 아직 안 불렀으면 샘플 사용
+  let menuText = '';
+  if (menuData.length > 0) {
+    menuText = menuData.map((r,i) => {
+      const keys = Object.keys(r);
+      return `${i+1}. ${r['메뉴명']||r[keys[0]]} | 재료: ${r['주재료']||r[keys[1]]||''} | 레시피: ${r['레시피 메모']||r['레시피메모']||r[keys[2]]||''} | 카테고리: ${r['카테고리']||''} | 조리시간: ${r['조리시간(분)']||r['조리시간']||''}분 | 난이도: ${r['난이도']||''}`;
+    }).join('\n');
+  } else {
+    menuText = '[시트 미연결 - 샘플]\n1. 김치찌개 | 재료: 김치,돼지고기,두부 | 찌개\n2. 된장찌개 | 재료: 된장,두부,애호박 | 찌개\n3. 제육볶음 | 재료: 돼지고기,양파,고추장 | 볶음\n4. 계란볶음밥 | 재료: 밥,계란,대파 | 볶음밥\n5. 파스타 | 재료: 파스타면,토마토소스 | 양식\n6. 떡볶이 | 재료: 떡,어묵,고추장 | 분식';
+  }
+
+  const today = new Date();
+  const dayNames = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
+  const dayName = dayNames[today.getDay()];
+
+  let prompt = '';
+  if (mode === 'mood') {
+    prompt = `당신은 가정요리 메뉴 추천 AI예요. 센스있고 따뜻하게 추천해주세요.
+
+[오늘 날씨] ${weatherInfo} (경기도 양주시 옥정동)
+[오늘 요일] ${dayName}
+[기분/원하는 것] ${selectedMood}
+[만들 수 있는 내 메뉴 목록]
+${menuText}
+
+위 목록에서 날씨·요일·기분에 딱 맞는 메뉴를 골라 추천해주세요. 반드시 아래 JSON만 출력하세요:
+{
+  "main": {
+    "name": "메뉴명",
+    "reason": "날씨/요일/기분을 연결한 센스있는 추천 이유 2~3문장",
+    "recipe_tip": "레시피 팁 (있으면, 없으면 빈 문자열)",
+    "youtube_queries": ["백종원 또는 류수영 유튜브 검색어1", "검색어2"]
+  },
+  "alternatives": [
+    {"name": "대안1", "reason": "짧은 이유"},
+    {"name": "대안2", "reason": "짧은 이유"}
+  ],
+  "trending_bonus": {
+    "name": "요즘 유행 메뉴 (내 목록에 없어도 됨)",
+    "reason": "트렌드 이유와 간단한 만드는 법",
+    "youtube_query": "유튜브 검색어"
+  }
+}`;
+  } else {
+    prompt = `당신은 냉장고 파먹기 전문 요리 추천 AI예요.
+
+[집에 있는 재료] ${ingredients.join(', ')}
+[오늘 날씨] ${weatherInfo}
+[오늘 요일] ${dayName}
+[내가 만들 수 있는 메뉴 목록]
+${menuText}
+
+집에 있는 재료로 만들 수 있거나 재료가 겹치는 메뉴를 내 목록에서 우선 골라주세요. 목록에 없어도 재료로 만들 수 있는 메뉴면 추천 가능해요. 반드시 아래 JSON만 출력하세요:
+{
+  "main": {
+    "name": "메뉴명",
+    "reason": "이 재료들로 이 메뉴가 딱인 이유 2~3문장. 센스있게!",
+    "recipe_tip": "집에 있는 재료를 활용한 레시피 팁",
+    "youtube_queries": ["백종원 또는 류수영 유튜브 검색어1", "검색어2"],
+    "missing_ingredients": ["혹시 없으면 아쉬운 재료들 (없으면 빈 배열)"]
+  },
+  "alternatives": [
+    {"name": "대안1", "reason": "짧은 이유"},
+    {"name": "대안2", "reason": "짧은 이유"}
+  ],
+  "trending_bonus": {
+    "name": "이 재료로 만들 수 있는 의외의 메뉴",
+    "reason": "왜 의외로 맛있는지",
+    "youtube_query": "유튜브 검색어"
+  }
+}`;
+  }
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{role:'user', content: prompt}]
+      })
+    });
+    const data = await resp.json();
+    const raw = data.content.map(c => c.text||'').join('');
+    const clean = raw.replace(/```json|```/g,'').trim();
+    const rec = JSON.parse(clean);
+    renderResult(resultId, rec, mode);
+  } catch(e) {
+    resultDiv.innerHTML = `<div style="padding:14px;background:#FFEBEE;border-radius:10px;font-size:13px;color:#C62828"><i class="ti ti-alert-circle"></i> 추천을 불러오지 못했어요. 잠시 후 다시 시도해주세요.</div>`;
+  }
+  btn.disabled = false;
+}
+
+function ytUrl(q) { return `https://www.youtube.com/results?search_query=${encodeURIComponent(q + ' 레시피 쇼츠')}`; }
+
+function renderResult(id, rec, mode) {
+  const m = rec.main;
+  const alts = rec.alternatives || [];
+  const trend = rec.trending_bonus;
+
+  const missingHtml = (mode === 'fridge' && m.missing_ingredients && m.missing_ingredients.length)
+    ? `<p style="font-size:12px;color:#E65100;margin-top:8px"><i class="ti ti-shopping-cart" style="font-size:13px;vertical-align:-2px"></i> 있으면 더 좋은 재료: ${m.missing_ingredients.join(', ')}</p>` : '';
+
+  const ytHtml = (m.youtube_queries||[]).map(q => `
+    <a class="yt-link-btn" href="${ytUrl(q)}" target="_blank">
+      <div class="yt-icon"><i class="ti ti-brand-youtube" aria-hidden="true"></i></div>
+      <div class="yt-text">
+        <div class="yt-title-text">${q} 레시피</div>
+        <div class="yt-sub">유튜브 쇼츠 검색</div>
+      </div>
+      <i class="ti ti-external-link yt-arrow" aria-hidden="true"></i>
+    </a>`).join('');
+
+  const altHtml = alts.map(a => `
+    <div class="alt-card">
+      <div class="alt-name">${a.name}</div>
+      <div class="alt-reason">${a.reason}</div>
+    </div>`).join('');
+
+  const trendHtml = trend ? `
+    <div class="trend-card">
+      <div class="trend-badge"><i class="ti ti-trending-up" aria-hidden="true"></i> 보너스 추천</div>
+      <div class="trend-name">${trend.name}</div>
+      <div class="trend-reason">${trend.reason}</div>
+      <a class="yt-link-btn" href="${ytUrl(trend.youtube_query)}" target="_blank" style="background:#fff">
+        <div class="yt-icon"><i class="ti ti-brand-youtube" aria-hidden="true"></i></div>
+        <div class="yt-text">
+          <div class="yt-title-text">${trend.youtube_query} 레시피</div>
+          <div class="yt-sub">유튜브 쇼츠 검색</div>
+        </div>
+        <i class="ti ti-external-link yt-arrow" aria-hidden="true"></i>
+      </a>
+    </div>` : '';
+
+  document.getElementById(id).innerHTML = `<div class="result-wrapper">
+    <div class="main-result">
+      <div class="result-badge"><i class="ti ti-sparkles" aria-hidden="true"></i> 오늘의 추천</div>
+      <div class="result-menu-name">${m.name}</div>
+      <div class="result-reason">${m.reason}</div>
+      ${m.recipe_tip ? `<div class="recipe-tip"><strong>📝 레시피 팁</strong>${m.recipe_tip}</div>` : ''}
+      ${missingHtml}
+      ${ytHtml ? `<div class="yt-section"><div class="yt-label"><i class="ti ti-brand-youtube"></i> 레시피 영상 보기</div>${ytHtml}</div>` : ''}
+    </div>
+    ${alts.length ? `<p style="font-size:12px;color:#9E9E9E;margin-bottom:8px;padding-left:4px">다른 선택지</p><div class="alts-grid">${altHtml}</div>` : ''}
+    ${trend ? `<p style="font-size:12px;color:#9E9E9E;margin:14px 0 8px;padding-left:4px">의외의 추천</p>${trendHtml}` : ''}
+  </div>`;
+}
+
+// 초기화
+loadWeather();
+loadSheet();
+</script>
+</body>
+</html>
