@@ -18,39 +18,32 @@
   --white:#FFFFFF;
 }
 body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-height:100vh}
-
-.site-header{background:var(--white);border-bottom:1px solid var(--gray-border);padding:0 16px;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.site-header{background:#fff;border-bottom:1px solid var(--gray-border);padding:0 16px;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
 .header-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px}
 .site-title{display:flex;align-items:center;gap:8px}
 .site-title h1{font-size:16px;font-weight:700;color:var(--green)}
-.weather-pill{display:flex;align-items:center;gap:5px;padding:5px 11px;background:var(--teal-light);border-radius:20px;font-size:12px;color:var(--teal);font-weight:500;cursor:pointer}
+.weather-pill{display:flex;align-items:center;gap:5px;padding:5px 11px;background:var(--teal-light);border-radius:20px;font-size:12px;color:var(--teal);font-weight:500}
 .weather-pill i{font-size:13px}
-
-.tabs{background:var(--white);border-bottom:1px solid var(--gray-border)}
+.tabs{background:#fff;border-bottom:1px solid var(--gray-border)}
 .tabs-inner{max-width:800px;margin:0 auto;display:flex}
 .tab-btn{flex:1;padding:12px 4px;border:none;background:none;font-family:inherit;font-size:13px;color:#9E9E9E;cursor:pointer;border-bottom:2.5px solid transparent;transition:all .2s;font-weight:400}
 .tab-btn.active{color:var(--green);border-bottom-color:var(--green);font-weight:700}
 .tab-btn i{display:block;font-size:18px;margin:0 auto 3px}
-
 .content{max-width:800px;margin:0 auto;padding:16px 14px 60px}
-.tab-panel{display:none}
-.tab-panel.active{display:block}
-
-.card{background:var(--white);border:1px solid var(--gray-border);border-radius:14px;padding:16px;margin-bottom:14px}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.card{background:#fff;border:1px solid var(--gray-border);border-radius:14px;padding:16px;margin-bottom:14px}
 .card-title{font-size:13px;font-weight:600;color:#616161;margin-bottom:12px;display:flex;align-items:center;gap:5px}
 .card-title i{font-size:15px;color:var(--green-mid)}
 
 /* 기분 */
 .mood-grid{display:flex;flex-wrap:wrap;gap:7px}
-.mood-btn{padding:7px 14px;border-radius:20px;border:1.5px solid var(--gray-border);background:var(--white);font-size:13px;cursor:pointer;color:var(--gray);transition:all .15s;font-family:inherit}
+.mood-btn{padding:7px 14px;border-radius:20px;border:1.5px solid var(--gray-border);background:#fff;font-size:13px;cursor:pointer;color:var(--gray);transition:all .15s;font-family:inherit}
 .mood-btn.active{background:var(--green);border-color:var(--green);color:#fff;font-weight:600}
 
-/* 메인 추천 버튼 */
-.rec-btn{width:100%;padding:15px;border-radius:12px;border:none;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;font-family:inherit;letter-spacing:.2px}
-.rec-btn.green{background:var(--green);color:#fff}
-.rec-btn.green:hover{background:#1B5E20}
-.rec-btn.orange{background:var(--orange);color:#fff}
-.rec-btn.orange:hover{background:#BF360C}
+/* 추천 버튼 */
+.rec-btn{width:100%;padding:15px;border-radius:12px;border:none;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;font-family:inherit}
+.rec-btn.green{background:var(--green);color:#fff}.rec-btn.green:hover{background:#1B5E20}
+.rec-btn.orange{background:var(--orange);color:#fff}.rec-btn.orange:hover{background:#BF360C}
 .rec-btn:disabled{opacity:.45;cursor:not-allowed}
 
 /* 결과 */
@@ -74,7 +67,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
 .yt-title-text{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .yt-sub{font-size:11px;color:#9E9E9E;margin-top:1px}
 .alts-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
-.alt-card{background:#fff;border:1px solid var(--gray-border);border-radius:12px;padding:12px;cursor:pointer;transition:all .15s}
+.alt-card{background:#fff;border:1px solid var(--gray-border);border-radius:12px;padding:12px;transition:all .15s}
 .alt-card:hover{border-color:var(--orange-mid);background:var(--orange-light)}
 .alt-name{font-size:14px;font-weight:600;margin-bottom:3px}
 .alt-reason{font-size:12px;color:#757575;line-height:1.5}
@@ -83,19 +76,17 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
 .trend-name{font-size:15px;font-weight:700;color:var(--orange);margin-bottom:5px}
 .trend-reason{font-size:13px;color:#5D4037;line-height:1.6;margin-bottom:8px}
 
-/* ── 냉장고 탭 ── */
-.ing-category{margin-bottom:14px}
-.ing-cat-label{font-size:12px;font-weight:700;color:#9E9E9E;margin-bottom:8px;display:flex;align-items:center;gap:4px;letter-spacing:.5px}
+/* 냉장고 탭 */
+.ing-category{margin-bottom:16px}
+.ing-cat-label{font-size:12px;font-weight:700;color:#9E9E9E;margin-bottom:8px;display:flex;align-items:center;gap:4px;letter-spacing:.4px;text-transform:uppercase}
 .ing-chips{display:flex;flex-wrap:wrap;gap:6px}
-.ing-chip{padding:6px 13px;border-radius:20px;border:1.5px solid var(--gray-border);background:#fff;font-size:13px;cursor:pointer;color:#616161;transition:all .15s;font-family:inherit;font-weight:400;user-select:none}
-.ing-chip.selected{font-weight:600}
-.ing-chip.cat-단백질.selected{background:#FFEBEE;border-color:#EF9A9A;color:#C62828}
-.ing-chip.cat-채소.selected{background:#E8F5E9;border-color:#A5D6A7;color:#2E7D32}
-.ing-chip.cat-기본재료.selected{background:#FFF9C4;border-color:#FFF176;color:#F57F17}
-.ing-chip.cat-양념.selected{background:#F3E5F5;border-color:#CE93D8;color:#6A1B9A}
-.ing-chip.cat-냉동.selected{background:#E3F2FD;border-color:#90CAF9;color:#1565C0}
-.ing-chip.cat-면/밥.selected{background:#FBE9E7;border-color:#FFAB91;color:#BF360C}
-
+.ing-chip{padding:6px 12px;border-radius:20px;border:1.5px solid var(--gray-border);background:#fff;font-size:12px;cursor:pointer;color:#616161;transition:all .15s;font-family:inherit;user-select:none}
+.ing-chip.cat-단백질.selected{background:#FFEBEE;border-color:#EF9A9A;color:#C62828;font-weight:600}
+.ing-chip.cat-채소.selected{background:#E8F5E9;border-color:#A5D6A7;color:#2E7D32;font-weight:600}
+.ing-chip.cat-기본재료.selected{background:#FFF9C4;border-color:#FFF176;color:#F57F17;font-weight:600}
+.ing-chip.cat-양념.selected{background:#F3E5F5;border-color:#CE93D8;color:#6A1B9A;font-weight:600}
+.ing-chip.cat-면밥.selected{background:#FBE9E7;border-color:#FFAB91;color:#BF360C;font-weight:600}
+.ing-chip.cat-유제품.selected{background:#E3F2FD;border-color:#90CAF9;color:#1565C0;font-weight:600}
 .custom-ing-row{display:flex;gap:8px;margin-top:10px}
 .custom-ing-row input{flex:1;padding:9px 13px;border:1.5px solid var(--gray-border);border-radius:10px;font-size:13px;font-family:inherit;outline:none}
 .custom-ing-row input:focus{border-color:var(--green-mid)}
@@ -105,7 +96,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
 .ing-tag button{border:none;background:none;cursor:pointer;color:var(--green);font-size:13px;line-height:1;padding:0;display:flex}
 .no-ing{font-size:12px;color:#BDBDBD;padding:2px 0}
 
-/* ── 내 메뉴 탭 ── */
+/* 내 메뉴 탭 */
 .sheet-status{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:14px}
 .sheet-status.ok{background:var(--green-light);color:var(--green)}
 .sheet-status.loading{background:var(--gray-light);color:var(--gray)}
@@ -113,23 +104,34 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
 
 /* 룰렛 */
 .roulette-wrap{display:flex;flex-direction:column;align-items:center;padding:10px 0 4px}
-.roulette-title{font-size:13px;font-weight:600;color:#616161;margin-bottom:12px;display:flex;align-items:center;gap:5px}
-.canvas-wrap{position:relative;width:280px;height:280px;margin:0 auto}
-#rouletteCanvas{border-radius:50%;display:block}
-.roulette-pointer{position:absolute;top:-14px;left:50%;transform:translateX(-50%);font-size:28px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,.25))}
-.spin-btn{margin-top:14px;padding:12px 36px;background:var(--green);color:#fff;border:none;border-radius:24px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 2px 8px rgba(46,125,50,.35)}
+.roulette-title{font-size:13px;font-weight:600;color:#616161;margin-bottom:14px;display:flex;align-items:center;gap:5px}
+.canvas-outer{position:relative;width:280px;height:280px;margin:0 auto}
+/* 바늘: 캔버스 위 정중앙 상단에 고정, 아래를 가리킴 */
+.roulette-needle{
+  position:absolute;
+  top:-6px; left:50%;
+  transform:translateX(-50%);
+  width:0; height:0;
+  border-left:10px solid transparent;
+  border-right:10px solid transparent;
+  border-top:28px solid #E53935;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));
+  z-index:10;
+}
+#rouletteCanvas{border-radius:50%;display:block;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.spin-btn{margin-top:16px;padding:12px 36px;background:var(--green);color:#fff;border:none;border-radius:24px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 2px 8px rgba(46,125,50,.35)}
 .spin-btn:hover{background:#1B5E20;transform:translateY(-1px)}
 .spin-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.roulette-result{margin-top:14px;text-align:center;min-height:36px}
-.roulette-result-name{font-size:20px;font-weight:700;color:var(--green);animation:popIn .3s ease}
+.roulette-result{margin-top:14px;text-align:center;min-height:40px}
+.roulette-result-name{font-size:22px;font-weight:700;color:var(--green);animation:popIn .3s ease}
 @keyframes popIn{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
 .roulette-result-sub{font-size:13px;color:#757575;margin-top:4px}
 
-.menu-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:2px}
+/* 카드 그리드 */
+.menu-cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:2px}
 .menu-card{background:#fff;border:1px solid var(--gray-border);border-radius:14px;padding:14px;transition:box-shadow .15s;position:relative;overflow:hidden}
 .menu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
-.menu-card.찌개::before{background:#42A5F5}
-.menu-card.국::before{background:#7986CB}
+.menu-card.찌개::before,.menu-card.국::before{background:#42A5F5}
 .menu-card.볶음::before{background:#EF5350}
 .menu-card.볶음밥::before{background:#FFB300}
 .menu-card.구이::before{background:#FF7043}
@@ -137,14 +139,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
 .menu-card.분식::before{background:#26A69A}
 .menu-card.기타::before{background:#BDBDBD}
 .menu-card:hover{box-shadow:0 3px 12px rgba(0,0,0,.1)}
-.mc-cat{font-size:10px;font-weight:700;color:#9E9E9E;letter-spacing:.5px;margin-bottom:5px;text-transform:uppercase}
+.mc-cat{font-size:10px;font-weight:700;color:#9E9E9E;letter-spacing:.5px;margin-bottom:5px}
 .mc-name{font-size:15px;font-weight:700;color:#212121;margin-bottom:5px}
-.mc-ing{font-size:11px;color:#9E9E9E;line-height:1.4;margin-bottom:5px}
+.mc-ing{font-size:11px;color:#9E9E9E;line-height:1.4;margin-bottom:4px}
 .mc-memo{font-size:11px;color:#616161;line-height:1.4;font-style:italic}
 .mc-meta{display:flex;gap:8px;margin-top:7px}
 .mc-chip{font-size:10px;color:#9E9E9E;display:flex;align-items:center;gap:2px}
 .mc-chip i{font-size:11px}
-
 .open-sheet-btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:12px;border:1.5px dashed var(--gray-border);border-radius:12px;color:#757575;font-size:13px;cursor:pointer;text-decoration:none;transition:all .15s;margin-top:12px;background:none;width:100%;font-family:inherit}
 .open-sheet-btn:hover{border-color:var(--green-mid);color:var(--green)}
 
@@ -157,21 +158,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
 .loading-text{font-size:13px;color:#9E9E9E}
 .empty-state{text-align:center;padding:36px 20px;color:#BDBDBD}
 .empty-state i{font-size:44px;margin-bottom:10px;display:block}
-.err-box{padding:13px;background:#FFEBEE;border-radius:10px;font-size:13px;color:#C62828}
+.err-box{padding:13px;background:#FFEBEE;border-radius:10px;font-size:13px;color:#C62828;margin-top:14px}
 @media(max-width:480px){.alts-grid{grid-template-columns:1fr}.result-menu-name{font-size:22px}.menu-cards-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
+
 <header class="site-header">
   <div class="header-inner">
-    <div class="site-title">
-      <span style="font-size:20px">🍽️</span>
-      <h1>우리가족 오늘 메뉴 추천</h1>
-    </div>
-    <div class="weather-pill" id="weatherPill">
-      <i class="ti ti-sun"></i>
-      <span id="weatherText">날씨 확인 중</span>
-    </div>
+    <div class="site-title"><span style="font-size:20px">🍽️</span><h1>우리가족 오늘 메뉴 추천</h1></div>
+    <div class="weather-pill" id="weatherPill"><i class="ti ti-sun"></i><span id="weatherText">날씨 확인 중</span></div>
   </div>
 </header>
 
@@ -185,7 +181,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
 
 <main class="content">
 
-<!-- 탭1: 메뉴 추천 -->
+<!-- 탭1 -->
 <div id="tab-recommend" class="tab-panel active">
   <div class="card">
     <p class="card-title"><i class="ti ti-mood-smile"></i>오늘 기분은?</p>
@@ -197,6 +193,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
       <button class="mood-btn" data-mood="따뜻한 국물">따뜻한 국물 🍲</button>
       <button class="mood-btn" data-mood="간단하게">간단하게 ⚡</button>
       <button class="mood-btn" data-mood="색다른거">색다른 거 🌟</button>
+      <button class="mood-btn" data-mood="아이들이 좋아하는">아이들 최애 🧒</button>
     </div>
   </div>
   <button class="rec-btn green" id="recBtn1" onclick="getRecommendation('mood')">
@@ -205,69 +202,120 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
   <div id="result1"></div>
 </div>
 
-<!-- 탭2: 냉장고 추천 -->
+<!-- 탭2 -->
 <div id="tab-fridge" class="tab-panel">
   <div class="card">
-    <p class="card-title"><i class="ti ti-egg"></i>집에 있는 재료를 골라주세요</p>
+    <p class="card-title"><i class="ti ti-fridge"></i>집에 있는 재료를 골라주세요</p>
 
     <div class="ing-category">
       <div class="ing-cat-label">🥩 단백질</div>
-      <div class="ing-chips" data-cat="단백질">
-        <button class="ing-chip cat-단백질" data-ing="돼지고기">돼지고기</button>
-        <button class="ing-chip cat-단백질" data-ing="소고기">소고기</button>
-        <button class="ing-chip cat-단백질" data-ing="닭고기">닭고기</button>
+      <div class="ing-chips">
+        <button class="ing-chip cat-단백질" data-ing="돼지고기 앞다리살">앞다리살</button>
+        <button class="ing-chip cat-단백질" data-ing="삼겹살">삼겹살</button>
+        <button class="ing-chip cat-단백질" data-ing="돼지고기 목살">목살</button>
+        <button class="ing-chip cat-단백질" data-ing="돼지 국거리">돼지 국거리</button>
+        <button class="ing-chip cat-단백질" data-ing="소고기 국거리">소 국거리</button>
+        <button class="ing-chip cat-단백질" data-ing="소고기 불고기용">소 불고기용</button>
+        <button class="ing-chip cat-단백질" data-ing="닭 볶음탕용">닭 볶음탕용</button>
+        <button class="ing-chip cat-단백질" data-ing="닭가슴살">닭가슴살</button>
+        <button class="ing-chip cat-단백질" data-ing="닭다리">닭다리</button>
         <button class="ing-chip cat-단백질" data-ing="계란" data-default="true">계란 🥚</button>
-        <button class="ing-chip cat-단백질" data-ing="두부">두부</button>
+        <button class="ing-chip cat-단백질" data-ing="두부" data-default="true">두부</button>
         <button class="ing-chip cat-단백질" data-ing="참치캔">참치캔</button>
-        <button class="ing-chip cat-단백질" data-ing="햄">햄</button>
+        <button class="ing-chip cat-단백질" data-ing="햄(스팸)">햄(스팸)</button>
         <button class="ing-chip cat-단백질" data-ing="소시지">소시지</button>
         <button class="ing-chip cat-단백질" data-ing="새우">새우</button>
+        <button class="ing-chip cat-단백질" data-ing="오징어">오징어</button>
+        <button class="ing-chip cat-단백질" data-ing="조개">조개</button>
+        <button class="ing-chip cat-단백질" data-ing="멸치">멸치</button>
       </div>
     </div>
 
     <div class="ing-category">
       <div class="ing-cat-label">🥬 채소</div>
-      <div class="ing-chips" data-cat="채소">
+      <div class="ing-chips">
         <button class="ing-chip cat-채소" data-ing="대파" data-default="true">대파 🌿</button>
         <button class="ing-chip cat-채소" data-ing="양파" data-default="true">양파</button>
         <button class="ing-chip cat-채소" data-ing="마늘" data-default="true">마늘</button>
+        <button class="ing-chip cat-채소" data-ing="배추김치" data-default="true">배추김치</button>
         <button class="ing-chip cat-채소" data-ing="감자">감자</button>
+        <button class="ing-chip cat-채소" data-ing="고구마">고구마</button>
         <button class="ing-chip cat-채소" data-ing="애호박">애호박</button>
         <button class="ing-chip cat-채소" data-ing="당근">당근</button>
-        <button class="ing-chip cat-채소" data-ing="배추김치" data-default="true">배추김치 🥬</button>
-        <button class="ing-chip cat-채소" data-ing="깻잎">깻잎</button>
-        <button class="ing-chip cat-채소" data-ing="버섯">버섯</button>
+        <button class="ing-chip cat-채소" data-ing="브로콜리">브로콜리</button>
+        <button class="ing-chip cat-채소" data-ing="콩나물">콩나물</button>
+        <button class="ing-chip cat-채소" data-ing="숙주">숙주</button>
         <button class="ing-chip cat-채소" data-ing="시금치">시금치</button>
+        <button class="ing-chip cat-채소" data-ing="깻잎">깻잎</button>
+        <button class="ing-chip cat-채소" data-ing="부추">부추</button>
+        <button class="ing-chip cat-채소" data-ing="버섯">버섯</button>
+        <button class="ing-chip cat-채소" data-ing="양배추">양배추</button>
+        <button class="ing-chip cat-채소" data-ing="청경채">청경채</button>
+        <button class="ing-chip cat-채소" data-ing="쪽파">쪽파</button>
+        <button class="ing-chip cat-채소" data-ing="대추">대추</button>
+        <button class="ing-chip cat-채소" data-ing="미역">미역</button>
+        <button class="ing-chip cat-채소" data-ing="고추">고추</button>
+        <button class="ing-chip cat-채소" data-ing="피망">피망</button>
+        <button class="ing-chip cat-채소" data-ing="토마토">토마토</button>
       </div>
     </div>
 
     <div class="ing-category">
-      <div class="ing-cat-label">🧂 양념/소스</div>
-      <div class="ing-chips" data-cat="양념">
+      <div class="ing-cat-label">🧀 유제품/기타 냉장</div>
+      <div class="ing-chips">
+        <button class="ing-chip cat-유제품" data-ing="우유">우유</button>
+        <button class="ing-chip cat-유제품" data-ing="버터">버터</button>
+        <button class="ing-chip cat-유제품" data-ing="생크림">생크림</button>
+        <button class="ing-chip cat-유제품" data-ing="슬라이스 치즈">슬라이스 치즈</button>
+        <button class="ing-chip cat-유제품" data-ing="모짜렐라 치즈">모짜렐라</button>
+        <button class="ing-chip cat-유제품" data-ing="어묵">어묵</button>
+        <button class="ing-chip cat-유제품" data-ing="냉동만두">냉동만두</button>
+        <button class="ing-chip cat-유제품" data-ing="냉동 새우">냉동 새우</button>
+        <button class="ing-chip cat-유제품" data-ing="베이컨">베이컨</button>
+      </div>
+    </div>
+
+    <div class="ing-category">
+      <div class="ing-cat-label">🧂 양념 / 소스</div>
+      <div class="ing-chips">
         <button class="ing-chip cat-양념" data-ing="고추장" data-default="true">고추장</button>
         <button class="ing-chip cat-양념" data-ing="된장" data-default="true">된장</button>
         <button class="ing-chip cat-양념" data-ing="간장" data-default="true">간장</button>
-        <button class="ing-chip cat-양념" data-ing="토마토소스">토마토소스</button>
         <button class="ing-chip cat-양념" data-ing="고춧가루">고춧가루</button>
+        <button class="ing-chip cat-양념" data-ing="참기름">참기름</button>
+        <button class="ing-chip cat-양념" data-ing="들기름">들기름</button>
+        <button class="ing-chip cat-양념" data-ing="굴소스">굴소스</button>
+        <button class="ing-chip cat-양념" data-ing="토마토소스">토마토소스</button>
+        <button class="ing-chip cat-양념" data-ing="크림소스(생크림)">크림소스</button>
+        <button class="ing-chip cat-양념" data-ing="인도 카레소스">인도카레 소스</button>
+        <button class="ing-chip cat-양념" data-ing="일본 카레 루">일본카레 루</button>
+        <button class="ing-chip cat-양념" data-ing="케첩">케첩</button>
+        <button class="ing-chip cat-양념" data-ing="마요네즈">마요네즈</button>
+        <button class="ing-chip cat-양념" data-ing="스리라차 소스">스리라차</button>
+        <button class="ing-chip cat-양념" data-ing="올리브오일">올리브오일</button>
+        <button class="ing-chip cat-양념" data-ing="설탕">설탕</button>
       </div>
     </div>
 
     <div class="ing-category">
-      <div class="ing-cat-label">🍚 면/밥/냉동</div>
-      <div class="ing-chips" data-cat="면/밥">
-        <button class="ing-chip cat-면/밥" data-ing="밥" data-default="true">밥 🍚</button>
-        <button class="ing-chip cat-면/밥" data-ing="라면사리">라면사리</button>
-        <button class="ing-chip cat-면/밥" data-ing="파스타면">파스타면</button>
-        <button class="ing-chip cat-면/밥" data-ing="떡">떡</button>
-        <button class="ing-chip cat-면/밥" data-ing="냉동만두">냉동만두</button>
-        <button class="ing-chip cat-면/밥" data-ing="어묵">어묵</button>
+      <div class="ing-cat-label">🍚 밥 / 면 / 기타</div>
+      <div class="ing-chips">
+        <button class="ing-chip cat-면밥" data-ing="밥" data-default="true">밥 🍚</button>
+        <button class="ing-chip cat-면밥" data-ing="라면사리">라면사리</button>
+        <button class="ing-chip cat-면밥" data-ing="스파게티면">스파게티면</button>
+        <button class="ing-chip cat-면밥" data-ing="펜네/파르팔레">펜네/파르팔레</button>
+        <button class="ing-chip cat-면밥" data-ing="우동면">우동면</button>
+        <button class="ing-chip cat-면밥" data-ing="소면">소면</button>
+        <button class="ing-chip cat-면밥" data-ing="떡">떡</button>
+        <button class="ing-chip cat-면밥" data-ing="식빵">식빵</button>
+        <button class="ing-chip cat-면밥" data-ing="당면">당면</button>
       </div>
     </div>
 
-    <div style="margin-top:4px">
+    <div>
       <div class="ing-cat-label" style="margin-top:8px">✏️ 직접 입력</div>
       <div class="custom-ing-row">
-        <input type="text" id="ingInput" placeholder="다른 재료 입력..." onkeydown="if(event.key==='Enter')addCustomIngredient()">
+        <input type="text" id="ingInput" placeholder="다른 재료..." onkeydown="if(event.key==='Enter')addCustomIngredient()">
         <button class="add-btn" onclick="addCustomIngredient()"><i class="ti ti-plus"></i>추가</button>
       </div>
     </div>
@@ -284,25 +332,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:#FAFAFA;color:#212121;min-
   <div id="result2"></div>
 </div>
 
-<!-- 탭3: 내 메뉴 목록 -->
+<!-- 탭3 -->
 <div id="tab-mymenus" class="tab-panel">
   <div id="sheetStatus" class="sheet-status loading"><i class="ti ti-loader-2"></i> 구글 시트에서 불러오는 중...</div>
-
-  <!-- 룰렛 -->
   <div class="card" id="rouletteCard" style="display:none">
     <div class="roulette-wrap">
       <div class="roulette-title"><i class="ti ti-device-gamepad-2" style="color:var(--purple)"></i>오늘 메뉴 룰렛 🎰</div>
-      <div class="canvas-wrap">
-        <div class="roulette-pointer">▼</div>
+      <div class="canvas-outer">
+        <div class="roulette-needle"></div>
         <canvas id="rouletteCanvas" width="280" height="280"></canvas>
       </div>
       <button class="spin-btn" id="spinBtn" onclick="spinRoulette()">🎲 돌리기!</button>
       <div class="roulette-result" id="rouletteResult"></div>
     </div>
   </div>
-
   <div id="menuListContainer"></div>
-
   <a href="https://docs.google.com/spreadsheets/d/1bi91WtqlXaFNXmCzJZ02PsJLIesm8R_p083xndFL5us/edit" target="_blank" class="open-sheet-btn">
     <i class="ti ti-brand-google"></i> 구글 시트에서 메뉴 추가/수정하기
   </a>
@@ -320,9 +364,10 @@ let selectedMood = '뭐든 좋아';
 let weatherInfo = '날씨 정보 없음';
 let customIngredients = [];
 let isSpinning = false;
-let rouletteAngle = 0;
+// 룰렛: 바퀴가 회전하는 각도 (슬라이스들이 같이 돌아감)
+let wheelAngle = 0;
 
-// ── 탭 전환
+// ── 탭
 function switchTab(name, el) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -331,7 +376,7 @@ function switchTab(name, el) {
   if (name === 'mymenus') { if (menuData.length === 0) loadSheet(); else renderMenuList(); }
 }
 
-// ── 기분 버튼
+// ── 기분
 document.querySelectorAll('.mood-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
@@ -340,13 +385,10 @@ document.querySelectorAll('.mood-btn').forEach(btn => {
   });
 });
 
-// ── 재료 칩 (기본값 자동 선택)
+// ── 재료 칩
 document.querySelectorAll('.ing-chip').forEach(chip => {
   if (chip.dataset.default === 'true') chip.classList.add('selected');
-  chip.addEventListener('click', () => {
-    chip.classList.toggle('selected');
-    renderSelectedBar();
-  });
+  chip.addEventListener('click', () => { chip.classList.toggle('selected'); renderSelectedBar(); });
 });
 renderSelectedBar();
 
@@ -354,28 +396,24 @@ function getSelectedIngredients() {
   const fromChips = [...document.querySelectorAll('.ing-chip.selected')].map(c => c.dataset.ing);
   return [...new Set([...fromChips, ...customIngredients])];
 }
-
 function renderSelectedBar() {
   const all = getSelectedIngredients();
   const bar = document.getElementById('selectedIngBar');
-  if (all.length === 0) { bar.innerHTML = '<span class="no-ing">재료를 선택해주세요</span>'; return; }
+  if (!all.length) { bar.innerHTML = '<span class="no-ing">재료를 선택해주세요</span>'; return; }
   bar.innerHTML = all.map(i =>
-    `<span class="ing-tag">${i}${customIngredients.includes(i) ? `<button onclick="removeCustom('${i}')" aria-label="삭제"><i class="ti ti-x" style="font-size:11px"></i></button>` : ''}</span>`
+    `<span class="ing-tag">${i}${customIngredients.includes(i)
+      ? `<button onclick="removeCustom('${i}')" aria-label="삭제"><i class="ti ti-x" style="font-size:11px"></i></button>` : ''}</span>`
   ).join('');
 }
-
 function addCustomIngredient() {
   const input = document.getElementById('ingInput');
-  const vals = input.value.split(/[,，\s]+/).map(v => v.trim()).filter(Boolean);
-  vals.forEach(v => { if (!customIngredients.includes(v)) customIngredients.push(v); });
+  input.value.split(/[,，\s]+/).map(v=>v.trim()).filter(Boolean).forEach(v => {
+    if (!customIngredients.includes(v)) customIngredients.push(v);
+  });
   input.value = '';
   renderSelectedBar();
 }
-
-function removeCustom(ing) {
-  customIngredients = customIngredients.filter(i => i !== ing);
-  renderSelectedBar();
-}
+function removeCustom(ing) { customIngredients = customIngredients.filter(i=>i!==ing); renderSelectedBar(); }
 
 // ── 날씨
 async function loadWeather() {
@@ -384,280 +422,251 @@ async function loadWeather() {
     const d = await r.json();
     const t = Math.round(d.current.temperature_2m);
     const code = d.current.weathercode;
-    let desc = '맑음', icon = 'ti-sun';
-    if (code >= 61) { desc = '비'; icon = 'ti-cloud-rain'; }
-    else if (code >= 51) { desc = '이슬비'; icon = 'ti-cloud-drizzle'; }
-    else if (code >= 3) { desc = '흐림'; icon = 'ti-cloud'; }
-    else if (code >= 1) { desc = '구름'; icon = 'ti-cloud-sun'; }
-    weatherInfo = `${desc} ${t}°C`;
-    document.getElementById('weatherText').textContent = `옥정 ${desc} ${t}°C`;
-    document.querySelector('#weatherPill i').className = `ti ${icon}`;
+    let desc='맑음', icon='ti-sun';
+    if(code>=61){desc='비';icon='ti-cloud-rain';}
+    else if(code>=51){desc='이슬비';icon='ti-cloud-drizzle';}
+    else if(code>=3){desc='흐림';icon='ti-cloud';}
+    else if(code>=1){desc='구름';icon='ti-cloud-sun';}
+    weatherInfo=`${desc} ${t}°C`;
+    document.getElementById('weatherText').textContent=`옥정 ${desc} ${t}°C`;
+    document.querySelector('#weatherPill i').className=`ti ${icon}`;
   } catch {
-    const m = new Date().getMonth() + 1;
-    weatherInfo = (m >= 6 && m <= 8) ? '더운 여름날씨' : (m >= 12 || m <= 2) ? '추운 겨울날씨' : '선선한 날씨';
-    document.getElementById('weatherText').textContent = weatherInfo;
+    const m=new Date().getMonth()+1;
+    weatherInfo=(m>=6&&m<=8)?'더운 여름날씨':(m>=12||m<=2)?'추운 겨울날씨':'선선한 날씨';
+    document.getElementById('weatherText').textContent=weatherInfo;
   }
 }
 
-// ── 구글 시트
+// ── 시트
 function parseCSV(text) {
   const lines = text.trim().split('\n');
   if (lines.length < 2) return [];
-  const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g,''));
+  const headers = lines[0].split(',').map(h=>h.trim().replace(/^"|"$/g,''));
   return lines.slice(1).map(line => {
-    const vals = []; let cur = ''; let inQ = false;
-    for (let i = 0; i < line.length; i++) {
-      if (line[i] === '"') { inQ = !inQ; }
-      else if (line[i] === ',' && !inQ) { vals.push(cur.trim()); cur = ''; }
-      else { cur += line[i]; }
+    const vals=[]; let cur=''; let inQ=false;
+    for(let i=0;i<line.length;i++){
+      if(line[i]==='"'){inQ=!inQ;}
+      else if(line[i]===','&&!inQ){vals.push(cur.trim());cur='';}
+      else{cur+=line[i];}
     }
     vals.push(cur.trim());
-    const obj = {};
-    headers.forEach((h, i) => { obj[h] = (vals[i]||'').replace(/^"|"$/g,''); });
+    const obj={};
+    headers.forEach((h,i)=>{obj[h]=(vals[i]||'').replace(/^"|"$/g,'');});
     return obj;
-  }).filter(r => r[headers[0]] && r[headers[0]].trim());
+  }).filter(r=>r[headers[0]]&&r[headers[0]].trim());
 }
-
 async function loadSheet() {
-  const status = document.getElementById('sheetStatus');
-  status.className = 'sheet-status loading';
-  status.innerHTML = '<i class="ti ti-loader-2"></i> 구글 시트에서 불러오는 중...';
+  const status=document.getElementById('sheetStatus');
+  status.className='sheet-status loading';
+  status.innerHTML='<i class="ti ti-loader-2"></i> 구글 시트에서 불러오는 중...';
   try {
-    const r = await fetch(SHEET_URL + '&t=' + Date.now());
-    if (!r.ok) throw new Error('fetch fail');
-    const text = await r.text();
-    menuData = parseCSV(text);
-    status.className = 'sheet-status ok';
-    status.innerHTML = `<i class="ti ti-circle-check"></i> ${menuData.length}개 메뉴 불러옴`;
+    const r=await fetch(SHEET_URL+'&t='+Date.now());
+    if(!r.ok) throw new Error('fetch fail');
+    menuData=parseCSV(await r.text());
+    status.className='sheet-status ok';
+    status.innerHTML=`<i class="ti ti-circle-check"></i> ${menuData.length}개 메뉴 불러옴`;
     renderMenuList();
-    if (menuData.length > 0) { document.getElementById('rouletteCard').style.display = 'block'; drawRoulette(); }
+    if(menuData.length>0){document.getElementById('rouletteCard').style.display='block';drawWheel();}
   } catch {
-    status.className = 'sheet-status err';
-    status.innerHTML = '<i class="ti ti-alert-circle"></i> 시트를 불러올 수 없어요. 공유 설정(뷰어 공개)을 확인해주세요.';
+    status.className='sheet-status err';
+    status.innerHTML='<i class="ti ti-alert-circle"></i> 시트를 불러올 수 없어요. 공유 설정(뷰어 공개)을 확인해주세요.';
   }
 }
-
-function getCatClass(cat) {
-  const map = {'찌개':'찌개','국':'국','볶음밥':'볶음밥','볶음':'볶음','구이':'구이','양식':'양식','분식':'분식'};
-  for (const k in map) { if ((cat||'').includes(k)) return map[k]; }
+function getCatKey(cat){
+  const map={'찌개':'찌개','국':'찌개','볶음밥':'볶음밥','볶음':'볶음','구이':'구이','양식':'양식','분식':'분식'};
+  for(const k in map){if((cat||'').includes(k)) return map[k];}
   return '기타';
 }
-
-function renderMenuList() {
-  const el = document.getElementById('menuListContainer');
-  if (menuData.length === 0) {
-    el.innerHTML = '<div class="empty-state"><i class="ti ti-mood-empty"></i><p>아직 등록된 메뉴가 없어요</p></div>';
-    return;
-  }
-  el.innerHTML = '<div class="menu-cards-grid">' + menuData.map(m => {
-    const keys = Object.keys(m);
-    const name = m['메뉴명']||m[keys[0]]||'';
-    const ing = m['주재료']||m[keys[1]]||'';
-    const memo = m['레시피 메모']||m['레시피메모']||m[keys[2]]||'';
-    const cat = m['카테고리']||'';
-    const time = m['조리시간(분)']||m['조리시간']||'';
-    const diff = m['난이도']||'';
-    const cls = getCatClass(cat);
+function renderMenuList(){
+  const el=document.getElementById('menuListContainer');
+  if(!menuData.length){el.innerHTML='<div class="empty-state"><i class="ti ti-mood-empty"></i><p>아직 등록된 메뉴가 없어요</p></div>';return;}
+  el.innerHTML='<div class="menu-cards-grid">'+menuData.map(m=>{
+    const k=Object.keys(m);
+    const name=m['메뉴명']||m[k[0]]||'';
+    const ing=m['주재료']||m[k[1]]||'';
+    const memo=m['레시피 메모']||m['레시피메모']||m[k[2]]||'';
+    const cat=m['카테고리']||'';
+    const time=m['조리시간(분)']||m['조리시간']||'';
+    const diff=m['난이도']||'';
+    const cls=getCatKey(cat);
     return `<div class="menu-card ${cls}">
       <div class="mc-cat">${cat||'기타'}</div>
       <div class="mc-name">${name}</div>
-      ${ing ? `<div class="mc-ing">🧺 ${ing}</div>` : ''}
-      ${memo ? `<div class="mc-memo">${memo}</div>` : ''}
+      ${ing?`<div class="mc-ing">🧺 ${ing}</div>`:''}
+      ${memo?`<div class="mc-memo">${memo}</div>`:''}
       <div class="mc-meta">
-        ${time ? `<span class="mc-chip"><i class="ti ti-clock"></i>${time}분</span>` : ''}
-        ${diff ? `<span class="mc-chip"><i class="ti ti-star"></i>${diff}</span>` : ''}
+        ${time?`<span class="mc-chip"><i class="ti ti-clock"></i>${time}분</span>`:''}
+        ${diff?`<span class="mc-chip"><i class="ti ti-star"></i>${diff}</span>`:''}
       </div>
     </div>`;
-  }).join('') + '</div>';
+  }).join('')+'</div>';
 }
 
-// ── 룰렛
-const ROULETTE_COLORS = ['#4CAF50','#FF7043','#42A5F5','#FFB300','#AB47BC','#26A69A','#EF5350','#78909C','#66BB6A','#FFA726','#29B6F6','#EC407A'];
+// ── 룰렛 (바늘 고정, 바퀴 회전)
+const COLORS=['#4CAF50','#FF7043','#42A5F5','#FFB300','#AB47BC','#26A69A','#EF5350','#78909C','#66BB6A','#FFA726','#29B6F6','#EC407A','#8D6E63','#5C6BC0','#26C6DA'];
 
-function drawRoulette(highlightIdx = -1) {
-  const canvas = document.getElementById('rouletteCanvas');
-  const ctx = canvas.getContext('2d');
-  const cx = 140, cy = 140, r = 132;
-  const names = menuData.map(m => m['메뉴명']||m[Object.keys(m)[0]]||'');
-  const n = Math.min(names.length, 12);
-  const sliceAngle = (Math.PI * 2) / n;
+function drawWheel(highlightIdx=-1){
+  const canvas=document.getElementById('rouletteCanvas');
+  const ctx=canvas.getContext('2d');
+  const cx=140,cy=140,r=132;
+  const names=menuData.slice(0,15).map(m=>m['메뉴명']||m[Object.keys(m)[0]]||'');
+  const n=names.length;
+  if(!n) return;
+  const slice=(Math.PI*2)/n;
   ctx.clearRect(0,0,280,280);
 
-  for (let i = 0; i < n; i++) {
-    const start = rouletteAngle + i * sliceAngle - Math.PI/2;
-    const end = start + sliceAngle;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.arc(cx, cy, r, start, end);
+  for(let i=0;i<n;i++){
+    // 바퀴 자체가 wheelAngle만큼 회전
+    const start=wheelAngle+i*slice-Math.PI/2;
+    const end=start+slice;
+    ctx.beginPath();ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,r,start,end);
     ctx.closePath();
-    ctx.fillStyle = (highlightIdx === i) ? '#FFF176' : ROULETTE_COLORS[i % ROULETTE_COLORS.length];
+    ctx.fillStyle=(highlightIdx===i)?'#FFF176':COLORS[i%COLORS.length];
     ctx.fill();
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 2;
-    ctx.stroke();
+    ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();
 
     // 텍스트
     ctx.save();
-    ctx.translate(cx, cy);
-    ctx.rotate(start + sliceAngle / 2);
-    ctx.textAlign = 'right';
-    ctx.fillStyle = '#fff';
-    ctx.font = 'bold 12px Noto Sans KR, sans-serif';
-    ctx.shadowColor = 'rgba(0,0,0,.4)';
-    ctx.shadowBlur = 3;
-    const label = names[i].length > 6 ? names[i].slice(0,5)+'…' : names[i];
-    ctx.fillText(label, r - 10, 4);
+    ctx.translate(cx,cy);
+    ctx.rotate(start+slice/2);
+    ctx.textAlign='right';
+    ctx.fillStyle='#fff';
+    ctx.font='bold 12px Noto Sans KR,sans-serif';
+    ctx.shadowColor='rgba(0,0,0,.45)';ctx.shadowBlur=3;
+    ctx.fillText((names[i].length>6?names[i].slice(0,5)+'…':names[i]),r-10,4);
     ctx.restore();
   }
-
   // 중앙 원
-  ctx.beginPath();
-  ctx.arc(cx, cy, 18, 0, Math.PI*2);
-  ctx.fillStyle = '#fff';
-  ctx.fill();
-  ctx.strokeStyle = '#E0E0E0';
-  ctx.lineWidth = 2;
-  ctx.stroke();
+  ctx.beginPath();ctx.arc(cx,cy,18,0,Math.PI*2);
+  ctx.fillStyle='#fff';ctx.fill();
+  ctx.strokeStyle='#E0E0E0';ctx.lineWidth=2;ctx.stroke();
 }
 
-function spinRoulette() {
-  if (isSpinning || menuData.length === 0) return;
-  isSpinning = true;
-  const btn = document.getElementById('spinBtn');
-  btn.disabled = true;
-  document.getElementById('rouletteResult').innerHTML = '';
+function spinRoulette(){
+  if(isSpinning||!menuData.length) return;
+  isSpinning=true;
+  const btn=document.getElementById('spinBtn');
+  btn.disabled=true;
+  document.getElementById('rouletteResult').innerHTML='';
 
-  const n = Math.min(menuData.length, 12);
-  const sliceAngle = (Math.PI * 2) / n;
-  const extraSpins = (Math.random() * 4 + 5) * Math.PI * 2;
-  const targetAngle = rouletteAngle + extraSpins;
-  const duration = 3500;
-  const start = performance.now();
-  const startAngle = rouletteAngle;
+  const n=Math.min(menuData.length,15);
+  const slice=(Math.PI*2)/n;
+  // 바퀴를 5~8바퀴 더 돌린 뒤 멈출 목표 각도
+  const extraRot=(Math.random()*3+5)*Math.PI*2;
+  const startAngle=wheelAngle;
+  const targetAngle=startAngle+extraRot;
+  const duration=3800;
+  const t0=performance.now();
+  function ease(t){return 1-Math.pow(1-t,3);}
 
-  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function frame(now){
+    const p=Math.min((now-t0)/duration,1);
+    wheelAngle=startAngle+(targetAngle-startAngle)*ease(p);
+    drawWheel();
+    if(p<1){requestAnimationFrame(frame);return;}
 
-  function animate(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    rouletteAngle = startAngle + (targetAngle - startAngle) * easeOut(progress);
-    drawRoulette();
-    if (progress < 1) { requestAnimationFrame(animate); return; }
-
-    rouletteAngle = rouletteAngle % (Math.PI * 2);
-    // 포인터(위쪽 = -PI/2)에서 어떤 슬라이스가 걸리는지 계산
-    const pointerAngle = (Math.PI * 3.5 - rouletteAngle) % (Math.PI * 2);
-    let idx = Math.floor(pointerAngle / sliceAngle) % n;
-    if (idx < 0) idx += n;
-    drawRoulette(idx);
-    const menu = menuData[idx];
-    const name = menu['메뉴명']||menu[Object.keys(menu)[0]]||'';
-    document.getElementById('rouletteResult').innerHTML =
+    // 바늘은 위(12시 = -PI/2)를 가리킴.
+    // 슬라이스 i의 중앙 각도(절대) = wheelAngle + i*slice - PI/2 + slice/2
+    // 바늘(0 = -PI/2 방향)에 가장 가까운 슬라이스 찾기
+    // 각 슬라이스 중앙의 "화면 각도(0=위)"를 계산
+    let winIdx=0, minDiff=Infinity;
+    for(let i=0;i<n;i++){
+      const midAbs=wheelAngle+i*slice-Math.PI/2+slice/2; // 절대 각도
+      // 위쪽(0)과의 차이 (0~PI 범위로 normalize)
+      let diff=((midAbs%(Math.PI*2))+Math.PI*2)%(Math.PI*2);
+      if(diff>Math.PI) diff=Math.PI*2-diff;
+      if(diff<minDiff){minDiff=diff;winIdx=i;}
+    }
+    drawWheel(winIdx);
+    const menu=menuData[winIdx];
+    const name=menu['메뉴명']||menu[Object.keys(menu)[0]]||'';
+    document.getElementById('rouletteResult').innerHTML=
       `<div class="roulette-result-name">🎉 ${name}!</div>
-       <div class="roulette-result-sub">${menu['주재료'] ? '주재료: '+menu['주재료'] : ''}</div>`;
-    isSpinning = false;
-    btn.disabled = false;
+       <div class="roulette-result-sub">${menu['주재료']?'주재료: '+menu['주재료']:''}</div>`;
+    isSpinning=false;btn.disabled=false;
   }
-  requestAnimationFrame(animate);
+  requestAnimationFrame(frame);
 }
 
 // ── AI 추천
-async function getRecommendation(mode) {
-  const btnId = mode === 'mood' ? 'recBtn1' : 'recBtn2';
-  const resultId = mode === 'mood' ? 'result1' : 'result2';
-  const btn = document.getElementById(btnId);
-  const resultDiv = document.getElementById(resultId);
-
-  const ingredients = getSelectedIngredients();
-  if (mode === 'fridge' && ingredients.length === 0) {
-    resultDiv.innerHTML = '<div class="err-box" style="margin-top:14px">재료를 먼저 선택해주세요!</div>'; return;
+async function getRecommendation(mode){
+  const btnId=mode==='mood'?'recBtn1':'recBtn2';
+  const resultId=mode==='mood'?'result1':'result2';
+  const btn=document.getElementById(btnId);
+  const resultDiv=document.getElementById(resultId);
+  const ingredients=getSelectedIngredients();
+  if(mode==='fridge'&&!ingredients.length){
+    resultDiv.innerHTML='<div class="err-box">재료를 먼저 선택해주세요!</div>';return;
   }
+  btn.disabled=true;
+  resultDiv.innerHTML=`<div class="loading-box"><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><p class="loading-text">맞춤 메뉴 고르는 중...</p></div>`;
 
-  btn.disabled = true;
-  resultDiv.innerHTML = `<div class="loading-box"><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><p class="loading-text">맞춤 메뉴 고르는 중...</p></div>`;
-
-  // 시트 메뉴 텍스트
-  let menuText = '';
-  if (menuData.length > 0) {
-    menuText = menuData.map((r,i) => {
-      const k = Object.keys(r);
-      return `${i+1}. ${r['메뉴명']||r[k[0]]} | 재료: ${r['주재료']||r[k[1]]||''} | 레시피: ${r['레시피 메모']||r['레시피메모']||r[k[2]]||''} | 카테고리: ${r['카테고리']||''} | 조리시간: ${r['조리시간(분)']||r['조리시간']||''}분 | 난이도: ${r['난이도']||''}`;
+  let menuText='';
+  if(menuData.length){
+    menuText=menuData.map((r,i)=>{
+      const k=Object.keys(r);
+      return `${i+1}. ${r['메뉴명']||r[k[0]]} | 재료: ${r['주재료']||r[k[1]]||''} | 레시피: ${r['레시피 메모']||r['레시피메모']||r[k[2]]||''} | 카테고리: ${r['카테고리']||''} | 시간: ${r['조리시간(분)']||r['조리시간']||''}분 | 난이도: ${r['난이도']||''}`;
     }).join('\n');
   } else {
-    menuText = '[시트 미연결 샘플]\n1. 김치찌개|재료:김치,돼지고기,두부|찌개\n2. 된장찌개|재료:된장,두부,애호박|찌개\n3. 제육볶음|재료:돼지고기,양파,고추장|볶음\n4. 계란볶음밥|재료:밥,계란,대파|볶음밥\n5. 파스타|재료:파스타면,토마토소스|양식\n6. 떡볶이|재료:떡,어묵,고추장|분식';
+    menuText='[샘플]\n1. 김치찌개|재료:김치,돼지고기,두부|찌개\n2. 된장찌개|재료:된장,두부,애호박|찌개\n3. 제육볶음|재료:돼지고기,양파,고추장|볶음\n4. 계란볶음밥|재료:밥,계란,대파|볶음밥\n5. 파스타|재료:파스타면,토마토소스|양식\n6. 떡볶이|재료:떡,어묵,고추장|분식';
   }
 
-  const dayName = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'][new Date().getDay()];
+  const day=['일요일','월요일','화요일','수요일','목요일','금요일','토요일'][new Date().getDay()];
+  const kidNote=`⭐ 중요: 이 가족은 어린이 포함 편식이 심합니다. 자극적이지 않고 어린이도 잘 먹는 메뉴를 우선 추천해주세요. 너무 맵거나 쓴 재료, 강한 향신료는 피해주세요. 아이들이 좋아하는 달콤하거나 고소하거나 바삭한 음식 위주로 추천해주세요.`;
 
-  const moodPrompt = `당신은 한국 가정요리 메뉴 추천 AI입니다. 센스있고 따뜻하게 추천해주세요.
+  const jsonSpec=`{"main":{"name":"메뉴명","reason":"추천이유 2~3문장","recipe_tip":"레시피팁 또는 빈문자열","youtube_queries":["백종원 또는 류수영 검색어1","검색어2"]},"alternatives":[{"name":"대안1","reason":"짧은이유"},{"name":"대안2","reason":"짧은이유"}],"trending_bonus":{"name":"어린이도 좋아하는 트렌드 메뉴","reason":"이유와 간단조리법","youtube_query":"검색어"}}`;
 
-[오늘 날씨] ${weatherInfo} (경기도 양주시 옥정동)
-[오늘 요일] ${dayName}
-[기분/원하는 것] ${selectedMood}
-[만들 수 있는 내 메뉴 목록]
-${menuText}
+  const moodPrompt=`당신은 한국 가정요리 메뉴 추천 AI입니다.
+${kidNote}
+[날씨] ${weatherInfo} (경기도 양주시 옥정동) [요일] ${day} [기분] ${selectedMood}
+[내 메뉴 목록]\n${menuText}
+위 목록에서 날씨·요일·기분과 어린이 입맛을 고려해 추천해주세요.
+JSON만 출력:
+${jsonSpec}`;
 
-위 목록에서 날씨·요일·기분에 딱 맞는 메뉴를 추천해주세요.
-JSON만 출력 (다른 텍스트 없이):
-{"main":{"name":"메뉴명","reason":"날씨/요일/기분을 연결한 추천이유 2~3문장","recipe_tip":"레시피팁 또는 빈문자열","youtube_queries":["백종원 또는 류수영 유튜브검색어1","검색어2"]},"alternatives":[{"name":"대안1","reason":"짧은이유"},{"name":"대안2","reason":"짧은이유"}],"trending_bonus":{"name":"요즘유행메뉴","reason":"트렌드이유와만드는법","youtube_query":"유튜브검색어"}}`;
+  const fridgeSpec=`{"main":{"name":"메뉴명","reason":"이 재료로 이 메뉴가 좋은 이유 2~3문장","recipe_tip":"재료 활용 팁","youtube_queries":["백종원 또는 류수영 검색어1","검색어2"],"missing_ingredients":["추가하면 더 좋은 재료"]},"alternatives":[{"name":"대안1","reason":"이유"},{"name":"대안2","reason":"이유"}],"trending_bonus":{"name":"이 재료로 만드는 의외의 어린이 인기 메뉴","reason":"왜 아이들이 좋아하는지","youtube_query":"검색어"}}`;
+  const fridgePrompt=`당신은 냉장고 파먹기 요리 추천 AI입니다.
+${kidNote}
+[집에 있는 재료] ${ingredients.join(', ')} [날씨] ${weatherInfo} [요일] ${day}
+[내 메뉴 목록]\n${menuText}
+집에 있는 재료로 만들 수 있으면서 어린이도 잘 먹는 메뉴를 추천해주세요.
+JSON만 출력:
+${fridgeSpec}`;
 
-  const fridgePrompt = `당신은 냉장고 파먹기 전문 요리 추천 AI입니다.
-
-[집에 있는 재료] ${ingredients.join(', ')}
-[오늘 날씨] ${weatherInfo}
-[오늘 요일] ${dayName}
-[내가 만들 수 있는 메뉴 목록]
-${menuText}
-
-집에 있는 재료로 만들 수 있는 메뉴를 내 목록에서 우선 골라주세요. 목록에 없어도 재료가 있으면 추천 가능합니다.
-JSON만 출력 (다른 텍스트 없이):
-{"main":{"name":"메뉴명","reason":"이 재료들로 이 메뉴가 딱인 이유 2~3문장","recipe_tip":"재료 활용 레시피팁","youtube_queries":["백종원 또는 류수영 유튜브검색어1","검색어2"],"missing_ingredients":["없으면아쉬운재료"]},"alternatives":[{"name":"대안1","reason":"짧은이유"},{"name":"대안2","reason":"짧은이유"}],"trending_bonus":{"name":"이재료로만드는의외의메뉴","reason":"왜맛있는지","youtube_query":"유튜브검색어"}}`;
-
-  try {
-    const resp = await fetch(CLAUDE_API, {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{role:'user', content: mode === 'mood' ? moodPrompt : fridgePrompt}]
-      })
+  try{
+    const resp=await fetch(CLAUDE_API,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
+        messages:[{role:'user',content:mode==='mood'?moodPrompt:fridgePrompt}]})
     });
-    if (!resp.ok) throw new Error('API ' + resp.status);
-    const data = await resp.json();
-    const raw = data.content.map(c => c.text||'').join('');
-    const clean = raw.replace(/```json|```/g,'').trim();
-    const jsonMatch = clean.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) throw new Error('no json');
-    const rec = JSON.parse(jsonMatch[0]);
-    renderResult(resultId, rec, mode);
-  } catch(e) {
-    resultDiv.innerHTML = `<div class="err-box" style="margin-top:14px"><i class="ti ti-alert-circle"></i> 추천을 불러오지 못했어요 (${e.message}). 잠시 후 다시 시도해주세요.</div>`;
+    if(!resp.ok) throw new Error('API '+resp.status);
+    const data=await resp.json();
+    const raw=data.content.map(c=>c.text||'').join('');
+    const m=raw.replace(/```json|```/g,'').trim().match(/\{[\s\S]*\}/);
+    if(!m) throw new Error('no json');
+    renderResult(resultId,JSON.parse(m[0]),mode);
+  } catch(e){
+    resultDiv.innerHTML=`<div class="err-box"><i class="ti ti-alert-circle"></i> 추천을 불러오지 못했어요 (${e.message}). 잠시 후 다시 시도해주세요.</div>`;
   }
-  btn.disabled = false;
+  btn.disabled=false;
 }
 
-function ytUrl(q) { return `https://www.youtube.com/results?search_query=${encodeURIComponent(q+' 레시피 쇼츠')}`; }
+function ytUrl(q){return `https://www.youtube.com/results?search_query=${encodeURIComponent(q+' 레시피 쇼츠')}`;}
 
-function renderResult(id, rec, mode) {
-  const m = rec.main;
-  const alts = rec.alternatives||[];
-  const trend = rec.trending_bonus;
-
-  const missingHtml = (mode==='fridge' && m.missing_ingredients && m.missing_ingredients.length)
-    ? `<p class="missing-ing"><i class="ti ti-shopping-cart" style="font-size:12px;vertical-align:-1px"></i> 있으면 더 좋은 재료: ${m.missing_ingredients.join(', ')}</p>` : '';
-
-  const ytHtml = (m.youtube_queries||[]).map(q => `
+function renderResult(id,rec,mode){
+  const m=rec.main,alts=rec.alternatives||[],trend=rec.trending_bonus;
+  const missing=(mode==='fridge'&&m.missing_ingredients&&m.missing_ingredients.length)
+    ?`<p class="missing-ing"><i class="ti ti-shopping-cart" style="font-size:12px;vertical-align:-1px"></i> 있으면 더 좋은 재료: ${m.missing_ingredients.join(', ')}</p>`:'';
+  const ytHtml=(m.youtube_queries||[]).map(q=>`
     <a class="yt-link-btn" href="${ytUrl(q)}" target="_blank">
       <div class="yt-icon"><i class="ti ti-brand-youtube"></i></div>
       <div class="yt-text"><div class="yt-title-text">${q} 레시피</div><div class="yt-sub">유튜브 쇼츠 검색</div></div>
       <i class="ti ti-external-link" style="color:#9E9E9E;font-size:14px"></i>
     </a>`).join('');
-
-  const altHtml = alts.map(a => `
-    <div class="alt-card"><div class="alt-name">${a.name}</div><div class="alt-reason">${a.reason}</div></div>`).join('');
-
-  const trendHtml = trend ? `
+  const altHtml=alts.map(a=>`<div class="alt-card"><div class="alt-name">${a.name}</div><div class="alt-reason">${a.reason}</div></div>`).join('');
+  const trendHtml=trend?`
     <p style="font-size:12px;color:#9E9E9E;margin:14px 0 8px;padding-left:4px">의외의 추천</p>
     <div class="trend-card">
       <div class="trend-badge"><i class="ti ti-trending-up"></i> 보너스</div>
@@ -668,23 +677,21 @@ function renderResult(id, rec, mode) {
         <div class="yt-text"><div class="yt-title-text">${trend.youtube_query} 레시피</div><div class="yt-sub">유튜브 쇼츠 검색</div></div>
         <i class="ti ti-external-link" style="color:#9E9E9E;font-size:14px"></i>
       </a>
-    </div>` : '';
-
-  document.getElementById(id).innerHTML = `<div class="result-wrapper">
+    </div>`:'';
+  document.getElementById(id).innerHTML=`<div class="result-wrapper">
     <div class="main-result">
       <div class="result-badge"><i class="ti ti-sparkles"></i> 오늘의 추천</div>
       <div class="result-menu-name">${m.name}</div>
       <div class="result-reason">${m.reason}</div>
-      ${m.recipe_tip ? `<div class="recipe-tip"><strong>📝 레시피 팁</strong>${m.recipe_tip}</div>` : ''}
-      ${missingHtml}
-      ${ytHtml ? `<div class="yt-section"><div class="yt-label"><i class="ti ti-brand-youtube"></i> 레시피 영상</div>${ytHtml}</div>` : ''}
+      ${m.recipe_tip?`<div class="recipe-tip"><strong>📝 레시피 팁</strong>${m.recipe_tip}</div>`:''}
+      ${missing}
+      ${ytHtml?`<div class="yt-section"><div class="yt-label"><i class="ti ti-brand-youtube"></i> 레시피 영상</div>${ytHtml}</div>`:''}
     </div>
-    ${alts.length ? `<p style="font-size:12px;color:#9E9E9E;margin-bottom:8px;padding-left:4px">다른 선택지</p><div class="alts-grid">${altHtml}</div>` : ''}
+    ${alts.length?`<p style="font-size:12px;color:#9E9E9E;margin-bottom:8px;padding-left:4px">다른 선택지</p><div class="alts-grid">${altHtml}</div>`:''}
     ${trendHtml}
   </div>`;
 }
 
-// 초기화
 loadWeather();
 loadSheet();
 </script>
